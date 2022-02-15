@@ -27,6 +27,6 @@ public class ValueTest {
 	public void testIncValTwice() {
 		value.incVal();
 		value.incVal();
-		assertEquals(3, value.getVal());
+		assertEquals(2, value.getVal());
 	}
 }

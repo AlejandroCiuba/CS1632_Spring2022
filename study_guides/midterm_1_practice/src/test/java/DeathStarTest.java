@@ -1,5 +1,3 @@
-
-
 import static org.junit.Assert.*;
 import org.mockito.*;
 
@@ -17,5 +15,20 @@ public class DeathStarTest {
 	@Test
 	public void testShootPlanet() {
 		// TODO: Fill in!
+		// Integration Test
+		DeathStar deathstar = new DeathStar();
+		Planet planet = new Planet(10);
+
+		assertEquals("Wimpy planet was hit by the superlaser!", deathstar.shoot(planet));
+		assertEquals(-90, planet.getHitPoints());
+
+		// Unit Test
+		deathstar = new DeathStar();
+		Planet p = Mockito.mock(Planet.class);
+		Mockito.when(p.getHitPoints()).thenReturn(10);
+		Mockito.when(p.toString()).thenReturn("Wimpy planet");
+
+		assertEquals("Wimpy planet was hit by the superlaser!", deathstar.shoot(p));
+		Mockito.verify(p, Mockito.times(1)).damage(100);
 	}
 }

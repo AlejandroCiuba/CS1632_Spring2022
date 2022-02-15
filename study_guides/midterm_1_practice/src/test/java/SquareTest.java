@@ -15,6 +15,17 @@ public class SquareTest {
 	@Test
 	public void testSetSquared() {
 		// TODO: Fill in!
+		// Integration Test
+		Square square = new Square();
+		Number number = new Number();
+
+		square.setSquared(number, 3);
+		assertEquals(9, number.getVal());
+
+		// Unit Testing
+		Number n = Mockito.mock(Number.class);
+		square.setSquared(n, 3);
+		Mockito.verify(n, Mockito.times(1)).setVal(9); // IMPORTANT
 	}
 
 }
