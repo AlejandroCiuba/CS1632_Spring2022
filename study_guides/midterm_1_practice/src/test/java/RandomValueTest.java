@@ -8,10 +8,11 @@ import org.mockito.*;
 
 public class RandomValueTest {
 	RandomValue value;
+	Random rand;
 
 	@Before
 	public void setUp() {
-		Random rand = Mockito.mock(Random.class);
+		rand = Mockito.mock(Random.class);
 		value = new RandomValue(rand);
 	}
 	
@@ -24,13 +25,14 @@ public class RandomValueTest {
 	
 	@Test
 	public void testIncValOnce() {
-		Mockito.when(rand.nextInt(2)).thenReturn(0);
+		Mockito.when(rand.nextInt(2)).thenReturn(1);
 		value.incVal();
 		assertEquals(1, value.getVal());
 	}
 
 	@Test
 	public void testIncValTwice() {
+		Mockito.when(rand.nextInt(2)).thenReturn(1);
 		value.incVal();
 		value.incVal();
 		assertEquals(2, value.getVal());

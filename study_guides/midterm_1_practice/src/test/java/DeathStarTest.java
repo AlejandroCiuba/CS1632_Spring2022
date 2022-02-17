@@ -14,7 +14,6 @@ public class DeathStarTest {
 	 */
 	@Test
 	public void testShootPlanet() {
-		// TODO: Fill in!
 		// Integration Test
 		DeathStar deathstar = new DeathStar();
 		Planet planet = new Planet(10);
